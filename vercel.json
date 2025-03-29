@@ -1,0 +1,23 @@
+{
+  "builds": [
+    {
+      "src": "main.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/docs",
+      "destination": "/api/docs"
+    },
+    {
+      "source": "/redoc",
+      "destination": "/api/redoc"
+    },
+    {
+      "source": "/api/(.*)",
+      "destination": "/main.py"
+    }
+  ]
+}
+

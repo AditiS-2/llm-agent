@@ -39,7 +39,7 @@ async def process_question(
 
 
 # New endpoint for testing specific functions
-@app.post("/debug/{function_name}")
+@app.post("/api/debug/{function_name}")
 async def debug_function(
     function_name: str,
     file: Optional[UploadFile] = File(None),
@@ -88,7 +88,3 @@ async def debug_function(
         return {"error": str(e), "traceback": traceback.format_exc()}
 
 
-if __name__ == "__main__":
-    import uvicorn
-
-    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
