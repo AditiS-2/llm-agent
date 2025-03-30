@@ -19,6 +19,22 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+async def root():
+    return {"message": "Welcome to the IITM Assignment API!"}
+@app.get("/api/health")
+async def health_check():
+    """
+    Health check endpoint
+    """
+    return {"status": "healthy"}
+
+@app.get("/api/")
+async def hello():
+    """
+    Hello world endpoint
+    """
+    return {"message": "Hello, World!"}
 
 @app.post("/api/")
 async def process_question(
